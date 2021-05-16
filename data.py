@@ -12,10 +12,10 @@ DEATHS = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/" \
          "time_series_covid19_deaths_global.csv"
 
 
-
 class Dataset:
     def __init__(self, URL):
-        self.df = pd.read_csv(URL, error_bad_lines=False, header=0, index_col=1)
+        self.df = pd.read_csv(URL, error_bad_lines=False, header=0,
+                              index_col=1)
         self.countries = self.df.index.to_numpy()
         self.dates = self.df.columns.to_numpy()[3:]
         self.type = URL[130:-11].capitalize()
